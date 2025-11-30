@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾尔登法环交互地图</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Elden Ring Map</h1>
+            <p class="description">探索交界地，标记重要位置，规划你的冒险之旅</p>
+        </header>
+        
+        <div class="content">
+            <div class="map-container">
+                <div id="map">
+                    <div class="map-loading">
+                        <div>正在加载艾尔登法环地图...</div>
+                    </div>
+                </div>
+                <div class="custom-zoom-controls">
+                    <div class="zoom-btn" id="zoom-in">+</div>
+                    <div class="zoom-btn" id="zoom-out">-</div>
+                </div>
+                <div class="coordinates-display" id="coordinates">
+                    Coordinates: X:0, Y:0
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-section">
+                    <h2>标记设置</h2>
+                    <p>选择标记颜色：</p>
+                    <div class="color-selector">
+                        <div class="color-option color-red selected" data-color="red" title="危险/敌人"></div>
+                        <div class="color-option color-green" data-color="green" title="安全/资源"></div>
+                        <div class="color-option color-blue" data-color="blue" title="兴趣点/任务"></div>
+                    </div>
+                    <div class="color-legend">
+                        <div class="legend-item">
+                            <div class="legend-color legend-red"></div>
+                            <span>Danger</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-green"></div>
+                            <span>Resource</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-blue"></div>
+                            <span>Interest</span>
+                        </div>
+                    </div>
+                    <div class="marker-counter">
+                        <span>当前标记: <span id="marker-count">0</span></span>
+                    </div>
+                    <button id="add-marker-btn">Add Marker</button>
+                    <button id="clear-markers-btn">Clear Markers</button>
+                </div>
+                
+                <div class="control-section">
+                    <h2>Markers List</h2>
+                    <div class="search-box">
+                        <input type="text" id="marker-search" placeholder="搜索标记...">
+                    </div>
+                    <div class="marker-list" id="marker-list">
+                        <div style="text-align: center; padding: 20px; color: #8d6e63;">
+                            暂无标记，点击上方按钮开始添加
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <h2>使用说明</h2>
+                    <div class="instructions">
+                        <ul>
+                            <li><strong>拖动地图</strong>：按住鼠标左键并拖动</li>
+                            <li><strong>缩放地图</strong>：使用右下角按钮或鼠标滚轮</li>
+                            <li><strong>添加标记</strong>：选择颜色后点击地图任意位置</li>
+                            <li><strong>删除标记</strong>：点击标记列表中的删除按钮</li>
+                            <li><strong>搜索标记</strong>：在搜索框中输入关键字</li>
+                            <li><strong>标记说明</strong>：红色-危险区域，绿色-安全资源点，蓝色-任务或兴趣点</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 艾尔登法环交互地图 | 使用 Leaflet.js 构建 | 地图版权归FromSoftware所有</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
